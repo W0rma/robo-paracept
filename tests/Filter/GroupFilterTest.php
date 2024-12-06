@@ -91,7 +91,7 @@ final class GroupFilterTest extends TestCase
         $task = new GroupFilter();
         $task->groupIncluded('foo');
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessageMatches(
+        $this->expectExceptionMessageMatches(
             '/^You can mark group "\w+" only as included OR excluded.$/'
         );
         $task->groupExcluded('foo');
@@ -105,7 +105,7 @@ final class GroupFilterTest extends TestCase
     {
         $task = (new GroupFilter())->groupExcluded('bar');
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessageMatches(
+        $this->expectExceptionMessageMatches(
             '/^You can mark group "\w+" only as included OR excluded.$/'
         );
         $task->groupIncluded('bar');
